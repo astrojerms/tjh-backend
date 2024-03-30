@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  postgresserver:
+    image: postgres:14.5
+    container_name: postgresserver
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      PGPORT: 5432
+    command: -c ssl=on -c ssl_cert_file=/var/server.crt -c ssl_key_file=/var/server.key
+    volumes:
+      - ./server.crt:/var/server.crt
+      - ./server.key:/var/server.key
