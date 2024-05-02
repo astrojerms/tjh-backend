@@ -47,18 +47,18 @@ test/cover:
 ## build: build the cmd/api application
 .PHONY: build
 build:
-	go build -o=/tmp/bin/api ./cmd/api
-	
+	go build -o=./bin/arbor-platform ./cmd/api
+
 ## run: run the cmd/api application
 .PHONY: run
 run: build
-	/tmp/bin/api
+	./bin/arbor-platform
 
 ## run/live: run the application with reloading on file changes
 .PHONY: run/live
 run/live:
 	go run github.com/cosmtrek/air@v1.43.0 \
-		--build.cmd "make build" --build.bin "/tmp/bin/api" --build.delay "100" \
+		--build.cmd "make build" --build.bin ./bin/arbor_platform" --build.delay "100" \
 		--build.exclude_dir "" \
 		--build.include_ext "go, tpl, tmpl, html, css, scss, js, ts, sql, jpeg, jpg, gif, png, bmp, svg, webp, ico" \
 		--misc.clean_on_exit "true"
