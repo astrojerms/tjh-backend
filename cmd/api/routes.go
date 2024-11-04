@@ -14,6 +14,7 @@ func (app *application) routes() http.Handler {
 
 	mux.HandlerFunc("GET", "/status", app.status)
 	mux.HandlerFunc("POST", "/users", app.createUser)
+	mux.GET("/users/:id", app.getUser)
 	mux.HandlerFunc("POST", "/authentication-tokens", app.createAuthenticationToken)
 
 	mux.Handler("GET", "/protected", app.requireAuthenticatedUser(http.HandlerFunc(app.protected)))

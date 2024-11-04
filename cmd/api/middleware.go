@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/astrojerms/build-platform-api/internal/response"
+	"github.com/astrojerms/tjh-backend/internal/response"
 
 	"github.com/pascaldekloe/jwt"
 	"github.com/tomasen/realip"

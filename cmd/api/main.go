@@ -7,10 +7,11 @@ import (
 	"os"
 	"runtime/debug"
 	"sync"
+	"time"
 
-	"github.com/astrojerms/build-platform-api/internal/database"
-	"github.com/astrojerms/build-platform-api/internal/smtp"
-	"github.com/astrojerms/build-platform-api/internal/version"
+	"github.com/astrojerms/tjh-backend/internal/database"
+	"github.com/astrojerms/tjh-backend/internal/smtp"
+	"github.com/astrojerms/tjh-backend/internal/version"
 
 	"github.com/lmittmann/tint"
 )
@@ -93,9 +94,14 @@ func run(logger *slog.Logger) error {
 	}
 
 	db, err := database.New(cfg.db.dsn, cfg.db.automigrate)
-	if err != nil {
-		return err
+	for err != nil {
+		logger.Error("Cannot connect to database", "error", err)
+		logger.Error("Retrying database connection in 10 seconds.")
+		// wait 10 seconds before trying again
+		time.Sleep(10 * time.Second)
+		db, err = database.New(cfg.db.dsn, cfg.db.automigrate)
 	}
+
 	defer db.Close()
 
 	mailer, err := smtp.NewMailer(cfg.smtp.host, cfg.smtp.port, cfg.smtp.username, cfg.smtp.password, cfg.smtp.from)

@@ -1,4 +1,4 @@
-module github.com/astrojerms/build-platform-api
+module github.com/astrojerms/tjh-backend
 
 go 1.22.0
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/astrojerms/build-platform-api/internal/database"
+	"github.com/astrojerms/tjh-backend/internal/database"
 )
 
 type contextKey string

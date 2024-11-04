@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/astrojerms/build-platform-api/assets"
-	"github.com/astrojerms/build-platform-api/internal/funcs"
+	"github.com/astrojerms/tjh-backend/assets"
+	"github.com/astrojerms/tjh-backend/internal/funcs"
 
 	"github.com/wneessen/go-mail"
 

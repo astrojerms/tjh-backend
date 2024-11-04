@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/astrojerms/build-platform-api/assets"
+	"github.com/astrojerms/tjh-backend/assets"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/source/iofs"

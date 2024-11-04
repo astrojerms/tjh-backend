@@ -802,4 +802,4 @@ Important: The version control system revision number will only be available aft
 
 ## Changing the module path
 
-The module path is currently set to `github.com/astrojerms/build-platform-api`. If you want to change this please find and replace all instances of `github.com/astrojerms/build-platform-api` in the codebase with your own module path.
+The module path is currently set to `github.com/astrojerms/tjh-backend`. If you want to change this please find and replace all instances of `github.com/astrojerms/tjh-backend` in the codebase with your own module path.

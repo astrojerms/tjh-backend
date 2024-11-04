@@ -7,8 +7,8 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/astrojerms/build-platform-api/internal/response"
-	"github.com/astrojerms/build-platform-api/internal/validator"
+	"github.com/astrojerms/tjh-backend/internal/response"
+	"github.com/astrojerms/tjh-backend/internal/validator"
 )
 
 func (app *application) reportServerError(r *http.Request, err error) {

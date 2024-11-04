@@ -1,14 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 	"time"
 
-	"github.com/astrojerms/build-platform-api/internal/password"
-	"github.com/astrojerms/build-platform-api/internal/request"
-	"github.com/astrojerms/build-platform-api/internal/response"
-	"github.com/astrojerms/build-platform-api/internal/validator"
+	"github.com/astrojerms/tjh-backend/internal/password"
+	"github.com/astrojerms/tjh-backend/internal/request"
+	"github.com/astrojerms/tjh-backend/internal/response"
+	"github.com/astrojerms/tjh-backend/internal/validator"
+
+	"github.com/julienschmidt/httprouter"
 
 	"github.com/pascaldekloe/jwt"
 )
@@ -136,6 +139,11 @@ func (app *application) createAuthenticationToken(w http.ResponseWriter, r *http
 	if err != nil {
 		app.serverError(w, r, err)
 	}
+}
+
+func (app *application) getUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	id := ps.ByName("id")
+	fmt.Fprintf(w, "User ID: %s\n", id)
 }
 
 func (app *application) protected(w http.ResponseWriter, r *http.Request) {
